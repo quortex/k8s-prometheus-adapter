@@ -173,6 +173,7 @@ func (p *prometheusProvider) GetMetricByName(name types.NamespacedName, info pro
 
 func (p *prometheusProvider) GetMetricBySelector(namespace string, selector labels.Selector, info provider.CustomMetricInfo, metricSelector labels.Selector) (*custom_metrics.MetricValueList, error) {
 	// fetch a list of relevant resource names
+	selector = labels.Everything()
 	resourceNames, err := helpers.ListObjectNames(p.mapper, p.kubeClient, namespace, selector, info)
 	if err != nil {
 		klog.Errorf("unable to list matching resource names: %v", err)

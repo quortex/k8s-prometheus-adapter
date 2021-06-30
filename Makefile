@@ -1,13 +1,13 @@
-REGISTRY?=directxman12
+REGISTRY?=quortexio
 IMAGE?=k8s-prometheus-adapter
-ARCH?=$(shell go env GOARCH)
+ARCH?=amd64
 ALL_ARCH=amd64 arm arm64 ppc64le s390x
 ML_PLATFORMS=linux/amd64,linux/arm,linux/arm64,linux/ppc64le,linux/s390x
 OUT_DIR?=$(PWD)/_output
 
 OPENAPI_PATH=./vendor/k8s.io/kube-openapi
 
-VERSION?=latest
+VERSION?=v0.8.4.labelsEverythings
 GOIMAGE=golang:1.15
 GO111MODULE=on
 export GO111MODULE
